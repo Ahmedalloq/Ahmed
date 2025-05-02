@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itqan Quran | اتقان</title>
+    <link rel="stylesheet" href="style-1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open-text icon-primary"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/><path d="M6 8h2"/><path d="M6 12h2"/><path d="M16 8h2"/><path d="M16 12h2"/></svg>
+                <h1>اتقان</h1>
+            </div>
+            <div class="sidebar-content">
+                <h2>السور</h2>
+                <ul id="chapter-list">
+                    <!-- Chapter list will be populated by JavaScript -->
+                    <li>جارٍ التحميل...</li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                اختبر حفظك للقرآن الكريم
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1 id="main-title">الصفحة الرئيسية</h1>
+                <!-- Header content can be added here if needed -->
+            </header>
+
+            <div id="welcome-screen" class="content-section active">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open-text icon-primary large-icon"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/><path d="M6 8h2"/><path d="M6 12h2"/><path d="M16 8h2"/><path d="M16 12h2"/></svg>
+                <h2>أهلاً بك في اتقان</h2>
+                <p>اختر سورة من القائمة الجانبية لبدء الاختبار.</p>
+                <button id="start-fatiha-btn" class="btn btn-primary">ابدأ بسورة الفاتحة</button>
+            </div>
+
+            <div id="test-screen" class="content-section">
+                <div class="test-card">
+                    <div class="test-header">
+                        <button id="back-to-home-btn" class="btn btn-ghost back-btn">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                             الرجوع
+                        </button>
+                        <h2 id="test-chapter-title">اختبار سورة ...</h2>
+                        <p id="question-counter">السؤال ١ من ...</p>
+                        <progress id="test-progress" value="0" max="100"></progress>
+                    </div>
+                    <div class="test-content">
+                        <div id="question-text" class="question-text">
+                            <p id="question-start"></p>
+                            <span class="placeholder">[...]</span>
+                            <p id="question-end"></p>
+                        </div>
+                         <p class="instruction">أكمل الآية الكريمة:</p>
+                        <div id="options-container" class="options-container">
+                            
+                        </div>
+                    </div>
+                    <div class="test-footer">
+                        <p id="feedback-message" class="feedback-message"></p>
+                        <button id="submit-answer-btn" class="btn btn-secondary">تحقق من الإجابة</button>
+                        <button id="next-question-btn" class="btn btn-primary" style="display: none;">السؤال التالي</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="results-screen" class="content-section">
+                 <div class="results-card">
+                    <h2>أحسنت! لقد أكملت الاختبار.</h2>
+                    <p id="results-text">نتيجتك في سورة ... هي .../... (...%)</p>
+                    <div class="results-actions">
+                        <button id="restart-test-btn" class="btn btn-primary">إعادة الاختبار</button>
+                        <button id="go-home-btn" class="btn btn-outline">الصفحة الرئيسية</button>
+                    </div>
+                 </div>
+            </div>
+
+            <div id="error-screen" class="content-section">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alert-circle icon-destructive large-icon"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+                <h2>خطأ</h2>
+                <p id="error-message">حدث خطأ غير متوقع.</p>
+                <button id="error-go-home-btn" class="btn btn-outline">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                    العودة للصفحة الرئيسية
+                </button>
+            </div>
+
+             <div id="loading-screen" class="content-section">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open-text icon-primary large-icon animate-pulse"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/><path d="M6 8h2"/><path d="M6 12h2"/><path d="M16 8h2"/><path d="M16 12h2"/></svg>
+                 <p>جارٍ تحميل الأسئلة...</p>
+            </div>
+
+        </main>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="quran-data.js"></script>
+    <script src="main-1.js"></script>
+</body>
+</html>
